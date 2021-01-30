@@ -19,7 +19,11 @@ int main(void){
 	appendList(list, node2);
 	insertList(list, node3, 1);
 
+	printList(list);
 
-	destroyList(list);
+	LLNode_t** array = listToArray(list);
+	printLLNArray(array, 3);
+	destroyLLNArray(array, 3);
+
 	return 0;
 }

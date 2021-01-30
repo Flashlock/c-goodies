@@ -41,4 +41,14 @@ void removeList(LinkedList_t*, LLNode_t*);
 //------------Manipulation------------------------//
 void printList(LinkedList_t*);
 
+void printLLNArray(LLNode_t**, int);
+
+//not gonna be written in here
+void printLLNode(LLNode_t*);
+
+//WARNING: this will make the list unusable
+LLNode_t** listToArray(LinkedList_t*);
+
+void destroyLLNArray(LLNode_t**, int);
+
 #endif

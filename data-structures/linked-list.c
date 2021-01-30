@@ -171,3 +171,38 @@ void printList(LinkedList_t* list){
 	}
 	printf("NULL\n");
 }
+
+void printLLNArray(LLNode_t** array, int size){
+	assert(array != NULL);
+
+	for(int i = 0; i < size; i++){
+		printf("%s > ", array[i] -> key);
+	}
+	printf("END\n");
+}
+
+LLNode_t** listToArray(LinkedList_t* list){
+	assert(list != NULL);
+
+	LLNode_t** array = (LLNode_t**) malloc(sizeof(LLNode_t*) * list -> size);
+	memCheck(array);
+	int index = 0;
+
+	LLNode_t* currNode = list -> head;
+	while(currNode != NULL){
+		array[index++] = &(*currNode);
+		currNode = currNode -> next;
+	}
+
+	free(list);
+	return array;
+}
+
+void destroyLLNArray(LLNode_t** array, int size){
+	assert(array != NULL);
+
+	for(int i = 0; i < size; i++){
+		destroyLLNode(array[i]);
+	}
+	free(array);
+}
